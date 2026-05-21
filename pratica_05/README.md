@@ -1,40 +1,50 @@
-# Lista de Exercícios — Matrizes e Listas Bidimensionais em Python
+# Lista de Exercícios Práticos para Laboratório
+## Matrizes e Listas Bidimensionais em Python
 
-**Tema:** Matrizes / listas bidimensionais — arrays em nível introdutório  
-**Conteúdos mobilizados:** lista de listas, acesso por índices `matriz[i][j]`, tabelas simples, boletins, grades, pequenas simulações e uso de matrizes em projetos.  
-**Público-alvo:** estudantes iniciantes em programação.  
-**Linguagem sugerida:** Python.  
-
----
-
-## Objetivos da lista
-
-Ao resolver esta lista, o estudante deverá ser capaz de:
-
-1. Criar matrizes simples usando listas de listas.
-2. Acessar e alterar elementos com índices duplos.
-3. Percorrer matrizes com laços aninhados.
-4. Calcular totais, médias, maiores e menores valores em tabelas.
-5. Representar boletins, grades de assentos, presença e pequenas simulações.
-6. Identificar erros comuns em matrizes, como índice fora dos limites e linhas irregulares.
+**Tema:** Matrizes / listas bidimensionais em nível introdutório  
+**Linguagem:** Python  
+**Formato:** Laboratório prático  
+**Carga sugerida:** 2 a 3 horas  
+**Entrega sugerida:** arquivos `.py` organizados por exercício ou um único notebook com seções identificadas.
 
 ---
 
-## Orientações gerais
+## 1. Objetivos da prática
 
-- Resolva os exercícios em arquivos `.py` separados ou em um notebook, conforme orientação do professor.
-- Sempre teste o código após cada pequena alteração.
-- Use nomes de variáveis significativos, como `linha`, `coluna`, `notas`, `boletim`, `sala` e `presencas`.
-- Quando usar `i` e `j`, lembre-se: em geral, `i` representa a linha e `j` representa a coluna.
-- Ao final de cada exercício prático, escreva uma frase curta explicando o que as linhas e colunas representam.
+Ao final desta lista, o estudante deverá ser capaz de:
+
+- criar matrizes usando listas de listas;
+- acessar valores por meio de índices duplos no formato `matriz[linha][coluna]`;
+- alterar valores em posições específicas;
+- percorrer matrizes com laços aninhados;
+- calcular somas, médias, contagens, maiores e menores valores;
+- representar boletins, grades de assentos, controle de presença e pequenas simulações;
+- identificar erros comuns, como índice fora dos limites e matriz irregular.
 
 ---
 
-# Parte 1 — Fixação conceitual
+## 2. Orientações para o laboratório
 
-## Exercício 1 — Identificando linhas e colunas
+1. Crie uma pasta chamada `laboratorio_matrizes`.
+2. Para cada exercício, crie um arquivo `.py` com nome padronizado, por exemplo: `ex01_criar_matriz.py`.
+3. Execute o código após cada pequena alteração.
+4. Use nomes de variáveis claros, como `linha`, `coluna`, `notas`, `sala`, `presencas`, `boletim`.
+5. Evite copiar soluções prontas. O objetivo é praticar o raciocínio por linhas e colunas.
+6. Ao final de cada exercício, escreva um comentário no código respondendo: **o que representa cada linha e cada coluna?**
 
-Considere a matriz abaixo:
+---
+
+## 3. Exercícios práticos
+
+---
+
+## Exercício 1 — Criando e exibindo uma matriz 3x3
+
+**Objetivo:** criar uma matriz simples e exibir suas linhas.
+
+Crie um programa chamado `ex01_criar_matriz.py` que:
+
+1. Declare a matriz abaixo:
 
 ```python
 matriz = [
@@ -44,102 +54,68 @@ matriz = [
 ]
 ```
 
-Responda:
+2. Exiba a matriz linha por linha.
+3. Ao final, imprima a quantidade de linhas e a quantidade de colunas.
 
-1. Quantas linhas a matriz possui?
-2. Quantas colunas existem em cada linha?
-3. Qual valor está em `matriz[0][2]`?
-4. Qual valor está em `matriz[2][1]`?
-5. Explique, com suas palavras, por que `matriz[1][1]` retorna `50`.
+**Saída esperada aproximada:**
 
----
+```text
+[10, 20, 30]
+[40, 50, 60]
+[70, 80, 90]
+Linhas: 3
+Colunas: 3
+```
 
-## Exercício 2 — Verdadeiro ou falso
-
-Classifique as afirmações como **V** ou **F**. Depois, corrija as falsas.
-
-1. Em Python, o primeiro índice de uma lista é `1`.
-2. Em `matriz[i][j]`, normalmente `i` indica a linha e `j` indica a coluna.
-3. Uma lista de listas sempre possui o mesmo número de elementos em todas as linhas.
-4. Uma matriz pode representar um boletim escolar.
-5. Para percorrer uma matriz inteira, geralmente usamos laços aninhados.
+**Desafio extra:** exiba a matriz sem colchetes, no formato de tabela.
 
 ---
 
-## Exercício 3 — Complete as lacunas
+## Exercício 2 — Acessando posições específicas
 
-Complete as frases com os termos adequados: **linha**, **coluna**, **lista externa**, **lista interna**, **elemento**.
+**Objetivo:** praticar o acesso com `matriz[linha][coluna]`.
 
-1. Em uma matriz, cada sublista pode ser interpretada como uma __________.
-2. A estrutura que agrupa todas as sublistas é chamada de __________.
-3. O valor armazenado em uma posição específica é chamado de __________.
-4. Em `matriz[2][0]`, o índice `2` seleciona a __________.
-5. Em `matriz[2][0]`, o índice `0` seleciona a __________ dentro da linha.
+Usando a matriz do exercício anterior, crie um programa que exiba:
+
+1. O valor da primeira linha e primeira coluna.
+2. O valor da segunda linha e terceira coluna.
+3. O valor da terceira linha e segunda coluna.
+4. A segunda linha completa.
+
+**Pergunta obrigatória no comentário final:** por que `matriz[1][2]` não representa a primeira linha e segunda coluna?
 
 ---
 
-# Parte 2 — Acesso e alteração de elementos
+## Exercício 3 — Alterando valores da matriz
 
-## Exercício 4 — Acesso direto
+**Objetivo:** modificar valores em posições específicas.
 
-Considere:
+Crie um programa que:
+
+1. Declare a matriz:
 
 ```python
 notas = [
     [8.0, 7.5, 9.0],
     [5.0, 6.0, 5.5],
-    [9.0, 8.5, 10.0],
-    [6.5, 7.0, 6.0]
+    [9.0, 8.5, 10.0]
 ]
 ```
 
-Escreva comandos `print()` para exibir:
+2. Exiba a matriz antes da alteração.
+3. Altere `notas[1][0]` para `6.5`.
+4. Altere `notas[2][2]` para `9.5`.
+5. Exiba a matriz depois da alteração.
 
-1. A primeira nota do primeiro estudante.
-2. A terceira nota do segundo estudante.
-3. A segunda nota do terceiro estudante.
-4. A terceira nota do quarto estudante.
-5. A linha completa de notas do terceiro estudante.
-
----
-
-## Exercício 5 — Alterando valores
-
-Usando a matriz do exercício anterior, escreva comandos para:
-
-1. Alterar a primeira nota do segundo estudante para `6.5`.
-2. Alterar a terceira nota do quarto estudante para `7.0`.
-3. Imprimir a matriz completa após as alterações.
-4. Explicar quais posições foram alteradas usando a notação `notas[i][j]`.
+**Desafio extra:** peça ao usuário uma linha, uma coluna e um novo valor; atualize a célula informada.
 
 ---
 
-## Exercício 6 — Erro de índice
+## Exercício 4 — Percorrendo uma matriz por valor
 
-Analise o código:
+**Objetivo:** usar laços aninhados sem índices explícitos.
 
-```python
-dados = [
-    [1, 2],
-    [3, 4]
-]
-
-print(dados[2][0])
-```
-
-Responda:
-
-1. Esse código executa corretamente? Por quê?
-2. Quais são os índices válidos para as linhas dessa matriz?
-3. Corrija o código para exibir o valor `3`.
-
----
-
-# Parte 3 — Percorrendo matrizes
-
-## Exercício 7 — Percurso por valor
-
-Dada a matriz:
+Crie um programa que percorra a matriz abaixo e imprima todos os valores, um por linha:
 
 ```python
 matriz = [
@@ -149,35 +125,43 @@ matriz = [
 ]
 ```
 
-Escreva um programa que percorra a matriz e imprima todos os valores, um por linha, usando o formato:
+**Restrição:** neste exercício, não use `range(len(...))`.
+
+**Saída esperada aproximada:**
 
 ```text
 Valor: 1
 Valor: 2
+Valor: 3
 ...
 ```
 
-Use percurso por valor, isto é, sem usar `range(len(...))`.
-
 ---
 
-## Exercício 8 — Percurso por índice
+## Exercício 5 — Percorrendo uma matriz por índice
 
-Usando a mesma matriz do exercício anterior, escreva um programa que imprima a posição e o valor de cada elemento no formato:
+**Objetivo:** exibir linha, coluna e valor de cada elemento.
+
+Usando a matriz do exercício 4, crie um programa que imprima cada elemento no formato:
 
 ```text
 Linha 0 Coluna 0 Valor 1
 Linha 0 Coluna 1 Valor 2
+Linha 0 Coluna 2 Valor 3
 ...
 ```
 
-Use `range(len(...))`.
+**Restrição:** use `range(len(matriz))` e `range(len(matriz[linha]))`.
+
+**Pergunta obrigatória no comentário final:** em que situações o percurso por índice é mais útil que o percurso por valor?
 
 ---
 
-## Exercício 9 — Soma geral
+## Exercício 6 — Soma total dos elementos
 
-Crie um programa que calcule a soma de todos os valores da matriz abaixo:
+**Objetivo:** usar acumulador em uma matriz.
+
+Crie um programa que calcule a soma de todos os valores da matriz:
 
 ```python
 valores = [
@@ -187,29 +171,41 @@ valores = [
 ]
 ```
 
-Ao final, exiba:
+O programa deve exibir:
 
 ```text
 Soma total: 45
 ```
 
+**Desafio extra:** calcule também a média geral dos elementos.
+
 ---
 
-## Exercício 10 — Contagem de pares
+## Exercício 7 — Contando números pares e ímpares
 
-Usando a matriz do exercício anterior, conte quantos números pares existem.
+**Objetivo:** aplicar condição dentro de laços aninhados.
 
-Saída esperada:
+Usando a matriz do exercício 6, crie um programa que conte:
+
+1. Quantos números pares existem.
+2. Quantos números ímpares existem.
+
+**Saída esperada aproximada:**
 
 ```text
-Quantidade de pares: 4
+Pares: 4
+Ímpares: 5
 ```
+
+**Desafio extra:** armazene os pares em uma lista chamada `pares_encontrados`.
 
 ---
 
-## Exercício 11 — Maior e menor valor
+## Exercício 8 — Maior e menor valor da matriz
 
-Crie um programa que encontre o maior e o menor valor da matriz abaixo:
+**Objetivo:** localizar extremos em uma lista bidimensional.
+
+Crie um programa que encontre o maior e o menor valor da matriz:
 
 ```python
 numeros = [
@@ -219,18 +215,28 @@ numeros = [
 ]
 ```
 
-Exiba:
+O programa deve exibir:
 
 ```text
 Maior valor: 21
 Menor valor: 3
 ```
 
+**Desafio extra:** exiba também a posição do maior e do menor valor.
+
 ---
 
-## Exercício 12 — Localizando posição do maior valor
+## Exercício 9 — Maior valor e sua posição
 
-A partir da matriz do exercício anterior, além de encontrar o maior valor, mostre sua posição:
+**Objetivo:** combinar busca com controle de índices.
+
+Usando a matriz do exercício 8, crie um programa que mostre:
+
+1. O maior valor.
+2. A linha em que ele está.
+3. A coluna em que ele está.
+
+**Saída esperada:**
 
 ```text
 Maior valor: 21
@@ -238,13 +244,15 @@ Linha: 1
 Coluna: 1
 ```
 
+**Pergunta obrigatória no comentário final:** por que foi necessário usar índices neste exercício?
+
 ---
 
-# Parte 4 — Boletins e tabelas simples
+## Exercício 10 — Boletim: média de cada estudante
 
-## Exercício 13 — Média por estudante
+**Objetivo:** representar boletim com matriz de notas.
 
-Considere o boletim:
+Crie um programa chamado `ex10_boletim_medias.py` com os dados:
 
 ```python
 nomes = ["Ana", "Bruno", "Carla", "Diego"]
@@ -257,9 +265,9 @@ notas = [
 ]
 ```
 
-Crie um programa que calcule e exiba a média de cada estudante.
+O programa deve calcular e exibir a média de cada estudante.
 
-Saída sugerida:
+**Saída esperada aproximada:**
 
 ```text
 Ana - Média: 8.17
@@ -268,16 +276,20 @@ Carla - Média: 9.17
 Diego - Média: 6.50
 ```
 
+**Desafio extra:** formate todas as médias com duas casas decimais.
+
 ---
 
-## Exercício 14 — Situação acadêmica
+## Exercício 11 — Boletim: média e situação
 
-Amplie o exercício anterior. Agora, o programa deve exibir também a situação do estudante:
+**Objetivo:** aplicar decisão condicional a partir da média.
 
-- média maior ou igual a `7.0`: **Aprovado**;
-- média menor que `7.0`: **Recuperação**.
+Amplie o exercício 10 para exibir a situação de cada estudante:
 
-Saída sugerida:
+- média maior ou igual a `7.0`: `Aprovado`;
+- média menor que `7.0`: `Recuperação`.
+
+**Saída esperada aproximada:**
 
 ```text
 Ana - Média: 8.17 - Aprovado
@@ -286,25 +298,37 @@ Carla - Média: 9.17 - Aprovado
 Diego - Média: 6.50 - Recuperação
 ```
 
+**Desafio extra:** adicione a situação `Reprovado` para média menor que `5.0`.
+
 ---
 
-## Exercício 15 — Maior média da turma
+## Exercício 12 — Boletim: maior média da turma
 
-Usando os mesmos dados, identifique o estudante com a maior média.
+**Objetivo:** identificar o estudante com melhor desempenho médio.
 
-Saída esperada:
+Usando os dados do boletim, crie um programa que:
+
+1. Calcule a média de cada estudante.
+2. Identifique a maior média.
+3. Exiba o nome do estudante com maior média.
+
+**Saída esperada:**
 
 ```text
 Maior média: Carla - 9.17
 ```
 
+**Desafio extra:** identifique também a menor média da turma.
+
 ---
 
-## Exercício 16 — Média por avaliação
+## Exercício 13 — Média por avaliação
 
-Ainda usando a matriz de notas, calcule a média da turma em cada avaliação.
+**Objetivo:** percorrer a matriz por coluna.
 
-Saída sugerida:
+Usando a matriz de notas, calcule a média da turma em cada avaliação.
+
+**Saída esperada aproximada:**
 
 ```text
 Avaliação 0 - Média: 7.13
@@ -312,38 +336,13 @@ Avaliação 1 - Média: 7.25
 Avaliação 2 - Média: 7.63
 ```
 
----
-
-## Exercício 17 — Avaliação com menor média
-
-A partir do exercício anterior, identifique qual avaliação teve a menor média.
-
-Saída esperada:
-
-```text
-Avaliação com menor média: 0
-Média: 7.13
-```
+**Pergunta obrigatória no comentário final:** por que neste exercício o laço externo pode percorrer as colunas?
 
 ---
 
-## Exercício 18 — Relatório de recuperação
+## Exercício 14 — Grade de assentos: contagem de estados
 
-Crie um programa que mostre apenas os estudantes em recuperação.
-
-Saída esperada:
-
-```text
-Estudantes em recuperação:
-Bruno - Média: 5.50
-Diego - Média: 6.50
-```
-
----
-
-# Parte 5 — Grades, presença e pequenas simulações
-
-## Exercício 19 — Grade de assentos
+**Objetivo:** representar uma grade simples com estados textuais.
 
 Considere a matriz:
 
@@ -360,34 +359,45 @@ Em que:
 - `"L"` representa assento livre;
 - `"O"` representa assento ocupado.
 
-Crie um programa que conte quantos assentos estão livres e quantos estão ocupados.
+Crie um programa que conte e exiba:
+
+1. Quantos assentos estão livres.
+2. Quantos assentos estão ocupados.
+
+**Desafio extra:** exiba o percentual de ocupação da sala.
 
 ---
 
-## Exercício 20 — Reservando assento
+## Exercício 15 — Grade de assentos: reserva de posição
 
-Usando a matriz `sala`, tente reservar o assento da linha `2`, coluna `1`.
+**Objetivo:** alterar uma célula da matriz com base em uma regra.
 
-Regras:
+Usando a matriz `sala`, crie um programa que:
 
-1. Se o assento estiver livre, altere para `"O"` e exiba `Reserva realizada`.
-2. Se estiver ocupado, exiba `Assento indisponível`.
-3. Ao final, imprima a matriz atualizada.
+1. Peça ao usuário a linha desejada.
+2. Peça ao usuário a coluna desejada.
+3. Verifique se a posição está dentro dos limites da matriz.
+4. Se o assento estiver livre (`"L"`), altere para ocupado (`"O"`) e exiba `Reserva realizada`.
+5. Se o assento estiver ocupado, exiba `Assento indisponível`.
+6. Exiba a matriz atualizada ao final.
+
+**Exemplo de interação:**
+
+```text
+Digite a linha: 2
+Digite a coluna: 1
+Reserva realizada.
+```
+
+**Desafio extra:** permita que o usuário faça reservas repetidas até digitar `-1` para sair.
 
 ---
 
-## Exercício 21 — Controle de presença
+## Exercício 16 — Controle de presença em matriz
 
-Crie uma matriz 4x5 para representar a presença de 4 estudantes em 5 aulas.
+**Objetivo:** usar matriz para representar presença e falta.
 
-Use:
-
-- `"P"` para presente;
-- `"F"` para falta.
-
-Depois, escreva um programa que conte o total de presenças e o total de faltas.
-
-Exemplo de matriz:
+Crie um programa com a matriz:
 
 ```python
 presencas = [
@@ -398,13 +408,23 @@ presencas = [
 ]
 ```
 
+O programa deve:
+
+1. Contar o total de presenças.
+2. Contar o total de faltas.
+3. Exibir o resultado geral.
+
+**Desafio extra:** calcule o percentual geral de presença.
+
 ---
 
-## Exercício 22 — Faltas por estudante
+## Exercício 17 — Faltas por estudante
 
-Usando a matriz de presença do exercício anterior, mostre quantas faltas cada estudante teve.
+**Objetivo:** calcular totais por linha.
 
-Saída sugerida:
+Usando a matriz de presença do exercício 16, crie um programa que exiba quantas faltas cada estudante teve.
+
+**Saída esperada aproximada:**
 
 ```text
 Estudante 0 - Faltas: 1
@@ -413,19 +433,32 @@ Estudante 2 - Faltas: 1
 Estudante 3 - Faltas: 2
 ```
 
----
-
-## Exercício 23 — Aula com mais faltas
-
-Usando a mesma matriz de presença, descubra qual aula teve mais faltas.
-
-Dica: agora será necessário percorrer por coluna.
+**Desafio extra:** exiba também a situação `Frequência adequada` ou `Atenção à frequência`.
 
 ---
 
-## Exercício 24 — Jogo da velha: exibição do tabuleiro
+## Exercício 18 — Aula com mais faltas
 
-Crie uma matriz 3x3 para representar um tabuleiro de jogo da velha:
+**Objetivo:** calcular totais por coluna.
+
+Usando a matriz de presença, descubra qual aula teve mais faltas.
+
+O programa deve exibir:
+
+```text
+Aula com mais faltas: X
+Quantidade de faltas: Y
+```
+
+**Dica:** neste exercício, cada coluna representa uma aula.
+
+---
+
+## Exercício 19 — Tabuleiro de jogo da velha
+
+**Objetivo:** representar e exibir uma grade 3x3.
+
+Crie uma matriz:
 
 ```python
 tabuleiro = [
@@ -435,7 +468,7 @@ tabuleiro = [
 ]
 ```
 
-Escreva um programa que exiba o tabuleiro em formato visual:
+Escreva um programa que exiba o tabuleiro no formato:
 
 ```text
 X | O |  
@@ -445,25 +478,56 @@ X | O |
 O |   | X
 ```
 
----
-
-## Exercício 25 — Jogo da velha: jogada simples
-
-Usando o tabuleiro do exercício anterior, faça uma jogada na linha `1`, coluna `0` com o símbolo `"X"`.
-
-Regras:
-
-1. Se a posição estiver vazia (`" "`), realize a jogada.
-2. Se a posição estiver ocupada, informe que a jogada é inválida.
-3. Exiba o tabuleiro atualizado.
+**Desafio extra:** crie uma função chamada `exibir_tabuleiro(tabuleiro)`.
 
 ---
 
-# Parte 6 — Depuração e análise de código
+## Exercício 20 — Jogada simples no jogo da velha
 
-## Exercício 26 — Corrigindo matriz irregular
+**Objetivo:** validar e alterar uma posição da matriz.
+
+Usando o tabuleiro do exercício 19, crie um programa que:
+
+1. Peça linha e coluna da jogada.
+2. Peça o símbolo (`X` ou `O`).
+3. Verifique se a posição está vazia.
+4. Se estiver vazia, realize a jogada.
+5. Se estiver ocupada, exiba `Jogada inválida`.
+6. Exiba o tabuleiro atualizado.
+
+**Desafio extra:** impeça símbolos diferentes de `X` e `O`.
+
+---
+
+## Exercício 21 — Depuração: índice fora dos limites
+
+**Objetivo:** identificar e corrigir erro de acesso.
 
 Analise o código:
+
+```python
+dados = [
+    [1, 2],
+    [3, 4]
+]
+
+print(dados[2][0])
+```
+
+No arquivo `ex21_debug_indice.py`, responda em comentários:
+
+1. Qual erro ocorre?
+2. Por que o erro ocorre?
+3. Quais são os índices válidos de linha?
+4. Corrija o código para exibir o valor `3`.
+
+---
+
+## Exercício 22 — Depuração: matriz irregular
+
+**Objetivo:** percorrer matriz com linhas de tamanhos diferentes.
+
+Analise:
 
 ```python
 dados = [
@@ -477,17 +541,17 @@ for i in range(len(dados)):
         print(dados[i][j])
 ```
 
-Responda:
+Crie uma versão corrigida que percorra todas as linhas com segurança, usando o tamanho real de cada linha.
 
-1. Qual erro pode ocorrer?
-2. Por que esse erro acontece?
-3. Reescreva o código de forma segura usando `len(dados[i])`.
+**Pergunta obrigatória no comentário final:** por que `range(3)` não é seguro nesse caso?
 
 ---
 
-## Exercício 27 — Inicialização incorreta
+## Exercício 23 — Depuração: inicialização incorreta
 
-Analise:
+**Objetivo:** compreender referência compartilhada em listas internas.
+
+Execute o código:
 
 ```python
 matriz = [[0] * 3] * 3
@@ -495,283 +559,98 @@ matriz[0][0] = 1
 print(matriz)
 ```
 
-Responda:
+Depois:
 
-1. Qual resultado provavelmente será exibido?
-2. Por que esse comportamento pode confundir iniciantes?
-3. Reescreva a criação da matriz usando compreensão de listas.
-
----
-
-## Exercício 28 — Acumulador no lugar errado
-
-O código abaixo deveria calcular a média de cada linha, mas possui erro lógico:
+1. Observe o resultado.
+2. Explique em comentário o que aconteceu.
+3. Crie a mesma matriz usando compreensão de listas:
 
 ```python
-notas = [
-    [8, 7, 9],
-    [5, 6, 5],
-    [9, 10, 8]
-]
-
-soma = 0
-for i in range(len(notas)):
-    for j in range(len(notas[i])):
-        soma += notas[i][j]
-    media = soma / len(notas[i])
-    print(media)
+matriz = [[0 for coluna in range(3)] for linha in range(3)]
 ```
 
-Responda:
-
-1. Qual é o problema com a variável `soma`?
-2. Corrija o código.
-3. Explique por que a correção funciona.
+4. Altere `matriz[0][0]` novamente e verifique se apenas uma célula foi alterada.
 
 ---
 
-# Parte 7 — Desafios integradores
+## Exercício 24 — Mini-projeto: sistema simples de boletim
 
-## Exercício 29 — Sistema simples de boletim
+**Objetivo:** integrar criação, percurso, média, decisão e relatório.
 
 Crie um programa completo que:
 
 1. Armazene nomes de 5 estudantes.
-2. Armazene 4 notas para cada estudante usando uma matriz.
+2. Armazene 4 notas para cada estudante usando matriz.
 3. Calcule a média de cada estudante.
-4. Mostre a situação: aprovado, recuperação ou reprovado.
-5. Use as regras:
-   - média maior ou igual a `7.0`: aprovado;
-   - média maior ou igual a `5.0` e menor que `7.0`: recuperação;
-   - média menor que `5.0`: reprovado.
-6. Mostre a maior média da turma.
-7. Mostre a menor média da turma.
+4. Classifique cada estudante conforme as regras:
+   - média maior ou igual a `7.0`: `Aprovado`;
+   - média maior ou igual a `5.0` e menor que `7.0`: `Recuperação`;
+   - média menor que `5.0`: `Reprovado`.
+5. Exiba um relatório final com nome, média e situação.
+6. Exiba a maior média da turma.
+7. Exiba a menor média da turma.
+
+**Entrega:** arquivo `ex24_miniprojeto_boletim.py`.
 
 ---
 
-## Exercício 30 — Mapa de ocupação de laboratório
+## Exercício 25 — Mini-projeto: mapa de ocupação de laboratório
+
+**Objetivo:** aplicar matriz em uma pequena simulação.
 
 Crie um programa para representar um laboratório com 4 fileiras e 5 computadores por fileira.
 
 Use:
 
-- `"L"` para computador livre;
-- `"O"` para computador ocupado;
-- `"M"` para computador em manutenção.
+- `"L"` para livre;
+- `"O"` para ocupado;
+- `"M"` para manutenção.
 
 O programa deve:
 
-1. Exibir o mapa completo.
+1. Exibir o mapa completo do laboratório.
 2. Contar computadores livres, ocupados e em manutenção.
-3. Permitir ocupar uma posição livre.
+3. Permitir ocupar uma posição livre informada pelo usuário.
 4. Impedir ocupar uma posição em manutenção.
-5. Informar se a posição digitada está fora dos limites da matriz.
+5. Informar se a posição digitada está fora dos limites.
+6. Exibir o mapa atualizado.
+
+**Entrega:** arquivo `ex25_miniprojeto_laboratorio.py`.
 
 ---
 
-## Exercício 31 — Matriz de vendas
-
-Uma loja registrou as vendas de 3 produtos durante 4 semanas:
-
-```python
-vendas = [
-    [20, 25, 18, 30],
-    [15, 22, 20, 19],
-    [30, 28, 35, 40]
-]
-```
-
-Cada linha representa um produto e cada coluna representa uma semana.
-
-Crie um programa que:
-
-1. Calcule o total vendido por produto.
-2. Calcule o total vendido por semana.
-3. Identifique o produto com maior total vendido.
-4. Identifique a semana com maior total vendido.
-
----
-
-## Exercício 32 — Simulação de crescimento em grade
-
-Considere uma grade 5x5 em que:
-
-- `0` representa célula vazia;
-- `1` representa célula ocupada.
-
-Crie uma matriz inicial e faça uma simulação simples:
-
-1. Conte quantas células estão ocupadas.
-2. Altere manualmente três células vazias para ocupadas.
-3. Conte novamente as células ocupadas.
-4. Exiba a grade antes e depois.
-
----
-
-# Parte 8 — Questões objetivas no padrão ENADE
-
-## Questão 33
-
-Considere o código:
-
-```python
-matriz = [
-    [2, 4, 6],
-    [8, 10, 12]
-]
-
-print(matriz[1][0])
-```
-
-O resultado impresso será:
-
-A) `2`  
-B) `4`  
-C) `6`  
-D) `8`  
-E) `[8, 10, 12]`
-
----
-
-## Questão 34
-
-Uma matriz `notas` possui 5 linhas e 3 colunas. Considerando a indexação em Python, a última posição válida dessa matriz é:
-
-A) `notas[5][3]`  
-B) `notas[4][2]`  
-C) `notas[3][4]`  
-D) `notas[2][4]`  
-E) `notas[1][1]`
-
----
-
-## Questão 35
-
-Considere a matriz:
-
-```python
-sala = [
-    ["L", "O"],
-    ["O", "L"]
-]
-```
-
-Qual trecho conta corretamente os assentos livres?
-
-A)
-
-```python
-livres = sala.count("L")
-```
-
-B)
-
-```python
-livres = 0
-for linha in sala:
-    for assento in linha:
-        if assento == "L":
-            livres += 1
-```
-
-C)
-
-```python
-livres = len(sala)
-```
-
-D)
-
-```python
-livres = 0
-for assento in sala:
-    if assento == "L":
-        livres += 1
-```
-
-E)
-
-```python
-livres = sala["L"]
-```
-
----
-
-## Questão 36
-
-Ao usar laços aninhados para percorrer uma matriz regular, é correto afirmar que:
-
-A) O laço interno normalmente percorre as linhas, e o externo percorre as colunas.  
-B) Não é possível usar `for` em matrizes.  
-C) O laço externo pode percorrer as linhas, enquanto o laço interno percorre os elementos de cada linha.  
-D) Matrizes só podem armazenar números inteiros.  
-E) O acesso `matriz[i][j]` sempre retorna uma linha inteira.
-
----
-
-## Questão 37
-
-O código abaixo apresenta um problema:
-
-```python
-matriz = [
-    [1, 2, 3],
-    [4, 5],
-    [6, 7, 8]
-]
-
-print(matriz[1][2])
-```
-
-A análise correta é:
-
-A) O código imprime `5`.  
-B) O código imprime `6`.  
-C) O código apresenta erro, pois a linha de índice `1` não possui coluna de índice `2`.  
-D) O código imprime `[4, 5]`.  
-E) O código imprime `3`.
-
----
-
-# Gabarito resumido
-
-## Parte conceitual e objetiva
-
-- Exercício 1: 3 linhas; 3 colunas; `30`; `80`; porque linha 1 é `[40, 50, 60]` e coluna 1 é `50`.
-- Exercício 2: F, V, F, V, V.
-- Exercício 3: linha; lista externa; elemento; linha; coluna.
-- Exercício 6: não executa; índices válidos de linha são `0` e `1`; para exibir `3`, use `dados[1][0]`.
-- Questão 33: D.
-- Questão 34: B.
-- Questão 35: B.
-- Questão 36: C.
-- Questão 37: C.
-
-## Resultados esperados de exercícios selecionados
-
-- Exercício 9: soma total `45`.
-- Exercício 10: quantidade de pares `4`.
-- Exercício 11: maior `21`, menor `3`.
-- Exercício 12: maior `21`, linha `1`, coluna `1`.
-- Exercício 13: Ana `8.17`, Bruno `5.50`, Carla `9.17`, Diego `6.50`.
-- Exercício 15: maior média `Carla - 9.17`.
-- Exercício 16: médias aproximadas `7.13`, `7.25`, `7.63`.
-- Exercício 18: Bruno e Diego em recuperação.
-
----
-
-# Sugestão de avaliação
+## 4. Critérios de avaliação sugeridos
 
 | Critério | Descrição | Pontuação sugerida |
 |---|---|---:|
 | Criação correta de matrizes | Usa listas de listas de forma coerente | 2,0 |
-| Acesso e alteração por índices | Usa `matriz[i][j]` corretamente | 2,0 |
-| Percurso com laços aninhados | Percorre linhas e colunas sem erros | 2,0 |
-| Resolução dos problemas aplicados | Calcula médias, contagens, buscas e relatórios | 3,0 |
-| Clareza e organização do código | Usa bons nomes, comentários úteis e testes | 1,0 |
+| Acesso por índices | Usa `matriz[linha][coluna]` corretamente | 2,0 |
+| Laços aninhados | Percorre linhas e colunas sem erros | 2,0 |
+| Resolução dos problemas | Calcula médias, contagens, buscas e atualizações | 2,0 |
+| Clareza do código | Usa bons nomes, comentários úteis e organização | 1,0 |
+| Depuração | Identifica e corrige erros de índice, irregularidade e inicialização | 1,0 |
 
 ---
 
-# Observação final ao estudante
+## 5. Entrega final sugerida
 
-Matrizes são úteis quando os dados têm uma organização natural em linhas e colunas. Antes de programar, sempre pergunte: **o que cada linha representa? O que cada coluna representa? A posição da célula tem significado para o problema?**
+Ao final do laboratório, entregue:
+
+1. Os arquivos `.py` dos exercícios resolvidos.
+2. Um arquivo `README_respostas.md` com breve explicação dos exercícios mais difíceis.
+3. Um comentário final respondendo:
+   - O que cada linha representa nos principais exercícios?
+   - O que cada coluna representa?
+   - Em qual exercício o uso de matriz foi mais útil?
+
+---
+
+## 6. Observação final
+
+Antes de programar qualquer solução com matriz, faça três perguntas:
+
+1. O problema tem linhas e colunas de forma natural?
+2. A posição do dado importa?
+3. Vou precisar percorrer, alterar, buscar ou calcular valores por linha ou coluna?
+
+Se a resposta for sim, uma lista bidimensional provavelmente é uma boa escolha.
